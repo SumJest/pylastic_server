@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <form method="post" enctype = "multipart/form-data">
+                  <div class="mb-3">
+                    <label for="file" class="form-label">Загрузка OUT файла с компьютера</label>
+                    <input class="form-control" type="file" id="file" accept=".out" name="file">
+                  </div>
+                    <div class="mb-3">
+                      <label for="selectAction">Выберете действие</label>
+                      <select class="form-select" id="selectAction" name="action">
+                        <option value="1">Полный анализ</option>
+                        <option value="2">Поверхность фукнции</option>
+                        <option value="3">Проекции поверхности функции</option>
+                      </select>
+                    </div>
+                    <div class="mb-3" id="functionFormGroup" hidden>
+                      <label for="selectFunction">Выберете функции</label>
+                      <select class="form-select" id="selectFunction" name="function">
+                        {% for function in functions %}
+                        <option value="{{function.value}}">{{function.name}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Процесс</button>
+                  </form>
+                {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                    <ul class=flashes>
+                    {% for message in messages %}
+                      <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                  {% endif %}
+                {% endwith %}
+                </div>
+              </div>
+            </div>
+
+</div>
+<script>
+  var action_select = document.getElementById('selectAction')
+  var function_select = document.getElementById('functionFormGroup')
+  action_select.addEventListener("change", (event) => {
+    if (action_select.value !== "1"){
+      function_select.removeAttribute('hidden')
+    }else{
+      function_select.setAttribute('hidden', '');
+    }
+  })
+</script>
+</body>
+</html>

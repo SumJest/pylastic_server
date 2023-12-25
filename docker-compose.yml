@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  pylastic_server:
+    image: romaaaka/pylastic_server:v1-prod
+    container_name: pylastic_server
+    environment:
+      # ==== User settings ====
+      FLASK_UID: 1000
+      FLASK_GID: 1000
+      # ==== Server settings ====
+      GUNICORN_PORT: 8002
+    ports:
+      - "8002:8002"
+

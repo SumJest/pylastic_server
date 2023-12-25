@@ -51,12 +51,19 @@
 <script>
   var action_select = document.getElementById('selectAction')
   var function_select = document.getElementById('functionFormGroup')
-  action_select.addEventListener("change", (event) => {
+
+  function update_select(){
+    console.log(action_select.value)
     if (action_select.value !== "1"){
       function_select.removeAttribute('hidden')
     }else{
       function_select.setAttribute('hidden', '');
     }
+  }
+  update_select();
+
+  action_select.addEventListener("change", (event) => {
+    update_select();
   })
 </script>
 </body>

@@ -62,4 +62,5 @@ RUN chown -R app:app $APP_HOME
 USER app
 
 # Запускает скрипт первоначальной настройки после развертывания
+RUN chmod +x /home/app/pylasticserver/entrypoint.sh
 ENTRYPOINT ["/home/app/pylasticserver/entrypoint.sh"]

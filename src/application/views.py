@@ -22,7 +22,7 @@ def process():
     match request.form['action']:
         case '1':
             try:
-                return service.process_analyze(file.stream.read())
+                return service.process_analyze(file.stream.read(), title=file.filename)
             except TensorNotFound as exception:
                 flash('Tensor not found')
         case '2':

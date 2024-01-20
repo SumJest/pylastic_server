@@ -13,26 +13,26 @@
                 <div class="card-body">
                   <form method="post" enctype = "multipart/form-data">
                   <div class="mb-3">
-                    <label for="file" class="form-label">Загрузка OUT файла с компьютера</label>
+                    <label for="file" class="form-label">Upload the OUT file from your computer</label>
                     <input class="form-control" type="file" id="file" accept=".out" name="file">
                   </div>
                     <div class="mb-3">
-                      <label for="selectAction">Выберете действие</label>
+                      <label for="selectAction">Select option</label>
                       <select class="form-select" id="selectAction" name="action">
-                        <option value="1">Полный анализ</option>
-                        <option value="2">Поверхность фукнции</option>
-                        <option value="3">Проекции поверхности функции</option>
+                        <option value="1">Full analysis</option>
+                        <option value="2">Spatial dependence</option>
+                        <option value="3">2D projections of spatial dependence</option>
                       </select>
                     </div>
                     <div class="mb-3" id="functionFormGroup" hidden>
-                      <label for="selectFunction">Выберете функции</label>
+                      <label for="selectFunction">Select modulus</label>
                       <select class="form-select" id="selectFunction" name="function">
                         {% for function in functions %}
-                        <option value="{{function.value}}">{{function.name}}</option>
+                        <option value="{{function.name}}">{{function.title}}</option>
                         {% endfor %}
                       </select>
                     </div>
-                    <button type="submit" class="btn btn-primary mr-2">Процесс</button>
+                    <button type="submit" class="btn btn-primary mr-2">Proceed</button>
                   </form>
                 {% with messages = get_flashed_messages() %}
                   {% if messages %}
@@ -51,12 +51,19 @@
 <script>
   var action_select = document.getElementById('selectAction')
   var function_select = document.getElementById('functionFormGroup')
-  action_select.addEventListener("change", (event) => {
+
+  function update_select(){
+    console.log(action_select.value)
     if (action_select.value !== "1"){
       function_select.removeAttribute('hidden')
     }else{
       function_select.setAttribute('hidden', '');
     }
+  }
+  update_select();
+
+  action_select.addEventListener("change", (event) => {
+    update_select();
   })
 </script>
 </body>

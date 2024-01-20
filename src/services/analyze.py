@@ -10,13 +10,13 @@ class AnalyzeService:
     def __init__(self):
         pass
 
-    def process_analyze(self, file: bytes):
+    def process_analyze(self, file: bytes, title: str = ""):
         tensor = Tensor(file)
         if not tensor.found:
             raise TensorNotFound('')
         analyzer = Analyzer(tensor)
         asyncio.run(analyzer.analyze())
-        viewer = Viewer(analyzer.analyzed)
+        viewer = Viewer(analyzer.analyzed, title=title)
         return asyncio.run(viewer.render())
 
     def process_surface(self, file: bytes, function: ElasticFunction):

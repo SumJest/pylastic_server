@@ -30,11 +30,15 @@ def process():
                 return service.process_surface(file.stream.read(), ElasticFunction.by_name(request.form['function']))
             except TensorNotFound as exception:
                 flash('Tensor not found')
+            except ValueError as exception:
+                flash(str(exception))
         case '3':
             try:
                 return service.process_projections(file.stream.read(), ElasticFunction.by_name(request.form['function']))
             except TensorNotFound as exception:
                 flash('Tensor not found')
+            except ValueError as exception:
+                flash(str(exception))
         case _:
             flash('Wrong action')
             return redirect(request.url)

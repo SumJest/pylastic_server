@@ -1,0 +1,33 @@
+aiohttp==3.8.6
+aiosignal==1.3.1
+annotated-types==0.6.0
+async-timeout==4.0.3
+attrs==23.1.0
+blinker==1.7.0
+certifi==2023.11.17
+charset-normalizer==3.3.2
+click==8.1.7
+colorama==0.4.6
+Flask==3.0.0
+frozenlist==1.4.0
+gunicorn==21.2.0
+idna==3.6
+itsdangerous==2.1.2
+Jinja2==3.1.2
+lakeApi @ git+https://github.com/SumJest/cdmLakeApi.git@a943ef02d1f0bf2b8f3bd78243cce1eec6f6737f
+Mako==1.2.4
+MarkupSafe==2.1.3
+multidict==6.0.4
+numpy==1.26.2
+packaging==23.2
+plotly==5.18.0
+pydantic==2.4.2
+pydantic_core==2.10.1
+pylastic @ git+https://github.com/SumJest/pylastic.git@412357c3607271f9be86b9a8b4d2640fc6064bd9
+requests==2.31.0
+scipy==1.11.4
+tenacity==8.2.3
+typing_extensions==4.8.0
+urllib3==2.1.0
+Werkzeug==3.0.1
+yarl==1.9.3

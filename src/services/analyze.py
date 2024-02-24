@@ -24,6 +24,7 @@ class AnalyzeService:
         if not tensor.found:
             raise TensorNotFound('')
         analyzer = Analyzer(tensor)
+        asyncio.run(analyzer.analyze())
         renderer = ElasticRender(analyzer, full_html=True, path_to_plotly_js='cdn')
         return asyncio.run(renderer.html_surface(function))
 
@@ -32,5 +33,6 @@ class AnalyzeService:
         if not tensor.found:
             raise TensorNotFound('')
         analyzer = Analyzer(tensor)
+        asyncio.run(analyzer.analyze())
         renderer = ElasticRender(analyzer, full_html=True, path_to_plotly_js='cdn')
         return asyncio.run(renderer.html_projections(function))

@@ -25,7 +25,7 @@ class AnalyzeService:
             raise TensorNotFound('')
         analyzer = Analyzer(tensor)
         asyncio.run(analyzer.analyze())
-        renderer = ElasticRender(analyzer, full_html=True, path_to_plotly_js='cdn')
+        renderer = ElasticRender(analyzer, full_html=False, path_to_plotly_js='cdn')
         return asyncio.run(renderer.html_surface(function))
 
     def process_projections(self, file: bytes, function: ElasticFunction):
@@ -34,5 +34,5 @@ class AnalyzeService:
             raise TensorNotFound('')
         analyzer = Analyzer(tensor)
         asyncio.run(analyzer.analyze())
-        renderer = ElasticRender(analyzer, full_html=True, path_to_plotly_js='cdn')
+        renderer = ElasticRender(analyzer, full_html=False, path_to_plotly_js='cdn')
         return asyncio.run(renderer.html_projections(function))

@@ -1,0 +1,6 @@
+version: "3.8"
+services:
+  pylastic_server:
+    image: $CI_REGISTRY_IMAGE:$DOCKER_TAG
+    container_name: pylastic_server
+    restart: unless-stopped

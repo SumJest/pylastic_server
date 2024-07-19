@@ -23,7 +23,7 @@ packaging==23.2
 plotly==5.18.0
 pydantic==2.4.2
 pydantic_core==2.10.1
-pylastic @ git+https://github.com/SumJest/pylastic.git@73391009ae6dcff776e9673ac55983bffd6a79d5
+pylastic @ git+https://github.com/SumJest/pylastic.git@543964acabb83f9af8d47fe66c79c6147a0ae5c6
 requests==2.31.0
 scipy==1.11.4
 tenacity==8.2.3
